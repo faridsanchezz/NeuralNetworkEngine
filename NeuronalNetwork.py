@@ -13,7 +13,7 @@ class NeuralLayer:
         self.activation_function = activation_function
         self.activation_derivative = activation_derivative
         self.input = None
-        self.output = None
+        self.output = None # resultado despues de aplicar la funcion de activacion
         self.z = None  # La salida antes de aplicar la función de activación
         self.delta = None  # El error en esta capa durante el backpropagation
         self.prev_weight_gradients = 0  # Inicialización para el momento
@@ -58,7 +58,7 @@ class NeuralNetwork:
         output = input_data
         for layer in self.layers:
             output = layer.forward(output)
-        return output
+        return output # salida de la ultima capa, es decir, predicción de la red
 
     def backward(self, error, optimizer, regularization_strength=0.0, momentum=0.0):
         for layer in reversed(self.layers):
