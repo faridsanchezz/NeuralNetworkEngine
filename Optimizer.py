@@ -4,4 +4,3 @@ class SGD:
 
     def update(self, weights, gradients):
         return weights - self.learning_rate * gradients
-
