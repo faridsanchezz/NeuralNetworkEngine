@@ -1,7 +1,6 @@
-from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import numpy as np
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
 
 def display_loss_per_epoch(losses):
@@ -26,10 +25,12 @@ def confusionMatrix(y_true, y_pred):
     # Generar matriz de confusión
     conf_matrix = confusion_matrix(y_true_labels, y_pred_labels)
     print("Confusion Matrix:")
-    print(conf_matrix)
+    # print(conf_matrix)
+    disp = ConfusionMatrixDisplay(confusion_matrix=conf_matrix)
+    disp.plot()
+    plt.show()
 
 
 def accuracy(y_test, y_pred):
-    # Evaluación final en el conjunto de prueba
-    final_accuracy = np.mean(np.argmax(y_pred, axis=1) == np.argmax(y_test, axis=1))
-    print(f"Final Accuracy on Test Set: {final_accuracy * 100:.2f}%")
+    accuracy = np.mean(np.argmax(y_pred, axis=1) == np.argmax(y_test, axis=1))
+    return accuracy * 100
