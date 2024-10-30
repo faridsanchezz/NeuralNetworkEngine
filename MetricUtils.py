@@ -8,7 +8,7 @@ def display_loss_per_epoch(losses):
 
     # Graficar la pérdida por epoch
     plt.figure(figsize=(10, 6))
-    plt.plot(range(1, epochs + 1), losses, marker='o', linestyle='-', color='b', label='Loss per Epoch')
+    plt.plot(range(1, epochs + 1), losses, linestyle='-', color='b', label='Loss per Epoch')
     plt.xlabel('Epoch')
     plt.ylabel('Loss')
     plt.title('Test Loss per Epoch')
