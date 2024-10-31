@@ -34,3 +34,17 @@ def confusionMatrix(y_true, y_pred):
 def accuracy(y_test, y_pred):
     accuracy = np.mean(np.argmax(y_pred, axis=1) == np.argmax(y_test, axis=1))
     return accuracy * 100
+
+def display_accuracy(accuracyList):
+
+    epochs = len(accuracyList)
+
+    # Graficar la pérdida por epoch
+    plt.figure(figsize=(10, 6))
+    plt.plot(range(1, epochs + 1), accuracyList, linestyle='-', color='b', label='Accuracy per Epoch')
+    plt.xlabel('Epoch')
+    plt.ylabel('Accuracy')
+    plt.title('Accuracy per Epoch')
+    plt.legend()
+    plt.grid()
+    plt.show()
